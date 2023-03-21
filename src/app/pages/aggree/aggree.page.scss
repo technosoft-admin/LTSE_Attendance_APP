@@ -1,0 +1,156 @@
+ion-header{
+    --background: #fff !important;
+    ion-toolbar{
+    --background: #fff !important;
+
+        ion-title{
+            font-size: 18px;
+            text-align: center;
+            color: #424242;
+        }
+
+    }
+}
+ion-content{
+    --background: #F4F4F6;
+    --padding-bottom:15px;
+    --padding-top:15px;
+    --padding-start:15px;
+    --padding-end:15px;
+    .exam-mode{
+        .exam-card{
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+            color: #141313;
+        }
+    }
+    
+}
+ion-footer{
+    display: block;
+    background: #F4F4F6;
+    .aggree-button{
+        margin: 0 auto;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        ion-button{
+            --background: #0e0364;
+            text-transform: capitalize;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+    }
+} 
+.footer-md::before{
+    background: transparent;
+}
+
+@media screen and (min-width: 500px) and (max-width: 767.5px) {
+    ion-content{
+        .exam-mode{
+            .exam-card{
+                background: #fff;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+                font-size: 25px;
+                line-height: 35px;
+            }
+        }
+        .aggree-button{
+            ion-button{
+                height: 65px;
+                font-size: 30px;
+            }
+        }
+    }
+    ion-footer{
+        display: block;
+        background: #F4F4F6;
+        .aggree-button{
+            margin: 0 auto;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            ion-button{
+                --background: #0e0364;
+                text-transform: capitalize;
+                // width: 40%;
+                margin: 0 auto;
+                height: 40px;
+                height: 65px;
+                font-size: 30px;
+            }
+        }
+    } 
+    .footer-md::before{
+        background: transparent;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991.5px) {
+    ion-content{
+        .exam-mode{
+            .exam-card{
+                background: #fff;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+                font-size: 25px;
+                line-height: 35px;
+            }
+        }
+    }
+    ion-footer{
+        display: block;
+        background: #F4F4F6;
+        .aggree-button{
+            margin: 0 auto;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            ion-button{
+                --background: #0e0364;
+                text-transform: capitalize;
+                // width: 40%;
+                margin: 0 auto;
+                height: 65px;
+                font-size: 30px;
+            }
+        }
+    } 
+    .footer-md::before{
+        background: transparent;
+    }
+}
+@media screen and (orientation: landscape) {
+    ion-content{
+        .exam-mode{
+            .exam-card{
+                background: #fff;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+            }
+        }
+    }
+    ion-footer{
+        display: block;
+        background: #F4F4F6;
+        .aggree-button{
+            margin: 0 auto;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            ion-button{
+                --background: #0e0364;
+                text-transform: capitalize;
+                // width: 40%;
+                margin: 0 auto;
+                height: 65px;
+                font-size: 30px;
+            }
+        }
+    } 
+    .footer-md::before{
+        background: transparent;
+    }
+}

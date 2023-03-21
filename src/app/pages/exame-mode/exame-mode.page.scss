@@ -1,0 +1,178 @@
+
+ion-header{
+    --background: #fff !important;
+    ion-toolbar{
+    --background: #fff !important;
+
+        ion-title{
+            font-size: 18px;
+            text-align: center;
+            color: #424242;
+        }
+    }
+}
+ion-content{
+    --background: #F4F4F6;
+    --padding-bottom:15px;
+    --padding-top:15px;
+    --padding-start:15px;
+    --padding-end:15px;
+    .exam-mode{
+        .exam-card{
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+            .exam-head{
+                text-align: center;
+                color: #0d2274;
+                font-size: 20px;
+                font-weight: 500;
+                font-family: system-ui;
+                border: 1px solid #fefefe;
+                margin-bottom: 5px;
+            }
+            .exam-icon{
+                text-align: center;
+                img{
+                    width: 40px;
+                }
+            }
+        }
+    }
+}
+// date open modal start
+.open-modal{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background:rgba(85, 82, 82, 0.4);
+}
+.modal-content{
+    position: fixed;
+    z-index: 9999 !important; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+.modal-list{
+    width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
+    .modal-head{
+     h2{
+        margin: 0;
+        font-size: 20px;
+        color: #e50d0d;
+        font-weight: 500;
+        font-family: sans-serif;
+        display: inline-block;
+        border-bottom: 1px;
+        border-bottom-style: inset;
+        border-bottom-color: #e50d0d;
+     }
+    }
+    .modal-body{
+       padding: 10px 0;
+       font-size: 13px;
+       line-height: 18px;
+       margin-bottom: 20px;
+       color: #141313;
+    }
+    .modal-footer{
+        text-align: right;
+        ion-button{
+            --background: #0d2274;
+            width: 90px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+    }
+}
+// date open modal end
+
+@media screen and (min-width: 500px) and (max-width: 767.5px) {
+    ion-header ion-toolbar ion-title{
+        font-size: 24px;
+    }
+    ion-content .exam-mode .exam-card{
+        width: 460px;
+        margin: 0 auto;
+        .exam-head{
+            font-size: 24px;
+        }
+        .exam-icon{
+            img{
+                width: 50px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991.5px) {
+
+    ion-header ion-toolbar ion-title{
+        font-size: 24px;
+    }
+    ion-content .exam-mode .exam-card{
+        width: 500px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        .exam-head{
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+        .exam-icon{
+            img{
+                width: 65px;
+            }
+        }
+    }
+    .modal-content{
+        top: 50%;
+        transform: translateY(-50%);
+        .modal-list{
+            width: 650px;
+            .modal-head{
+                h2{
+                    font-size: 35px;
+                }
+            }
+            .modal-body{
+                padding: 10px 0;
+                font-size: 30px;
+                line-height: 50px;
+                margin-bottom: 20px;
+            }
+            .modal-footer{
+                ion-button{
+                    width: 150px;
+                    font-size: 32px;
+                    height: 55px;
+                }
+            }
+        }
+    }
+   
+}
+@media screen and (orientation: landscape) {
+    ion-header ion-toolbar ion-title{
+        font-size: 24px;
+    }
+    ion-content .exam-mode .exam-card{
+        width: 460px;
+        margin: 0 auto;
+        .exam-head{
+            font-size: 24px;
+        }
+        .exam-icon{
+            img{
+                width: 50px;
+            }
+        }
+    }
+}

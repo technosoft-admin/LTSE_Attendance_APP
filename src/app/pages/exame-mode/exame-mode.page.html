@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Select Exam Mode
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="exam-mode">
+    <ion-row>
+      <ion-col size="12" *ngIf="onlineModal">
+        <div class="exam-card" matRipple (click)="onSelect('Online Scholarship Exam','1')">
+          <div class="exam-head">Online Entrace Exam</div>
+          <div class="exam-icon"><img src="assets/images/online-education.png" /></div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </ion-col>
+      <ion-col size="12" *ngIf="offlineModal">
+        <div class="exam-card" matRipple
+         (click)="onSelect('Offline Scholarship Exam','2')">
+          <div class="exam-head">Offline Scholarship Exam</div>
+          <div class="exam-icon"><img src="assets/images/notes.png" /></div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div class="modal-view">
+      <div class="inline-calendar" >
+        <div class="closeModal" *ngIf="click_modal" (click)="clickedOut()"></div>
+        <div class="open-modal" *ngIf="click_modal">
+          <div class="modal-content">
+            <div class="modal-list">
+              <div class="modal-head">
+                <h2>‣ {{head}}</h2>
+              </div>
+              <div class="modal-body" [innerHtml]="message">
+               
+              </div>
+              <div class="modal-footer">
+                <ion-button (click)="onSubmit()">Next</ion-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div mat-dialog-content>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</ion-content>

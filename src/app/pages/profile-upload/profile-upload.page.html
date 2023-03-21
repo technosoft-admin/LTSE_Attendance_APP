@@ -1,0 +1,61 @@
+
+<ion-content>
+  <!-- image top section Start  -->
+  <div class="bg-img-top">
+    <!-- left arrow key start -->
+    <ion-row>
+        <!-- <mat-icon class="back-button" aria-hidden="false" aria-label="Example home icon" [routerLink]="['/', 'dashboard']">keyboard_backspace</mat-icon> -->
+        <ion-icon [routerLink]="['/','exam-mode']" class="back-button" name='arrow-back-outline'></ion-icon>
+      </ion-row>
+    <!-- left arrow key end -->
+    <!-- profile title strat -->
+    <ion-row>
+      <div class="profile-title">
+        <p>Upload Photo</p>
+        <!-- <img src="" /> -->
+      </div>
+    </ion-row>
+    <div>
+      <div class="header">
+        <div class="avatar">
+          <div class="edit-img">
+            <div class="no-img" *ngIf="!imgaePreviewcv">No Photo</div>
+            <img *ngIf="imgaePreviewcv" src="{{imgaePreviewcv}}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="upload-text"><p>Upload Your Latest Passport Size Photo</p></div>
+    <div class="upload-btn">
+      <!-- <label for="myfile" class="position-relative"><input type="file" id="myfile" style="z-index: 2;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 61px;
+        transform: translate(-50%,-50%);
+        opacity: 0;" accept="image/*"  (change)="normalFileUpload($event)"></label> -->
+        <ion-button class="fileupload-btn" (change)="normalFileUpload($event)">
+          <input type="file" id="myfile"  accept="image/*">
+          Browse
+        </ion-button>
+        <ion-button class="camera-btn">
+          <ion-icon slot="icon-only" name="camera"></ion-icon>
+        </ion-button>
+    </div>
+    
+    <div class="progress-bar">
+      <ion-progress-bar [value]="progress"></ion-progress-bar>
+      <p>{{progress}}%</p>
+    </div>
+  </div>
+  <!-- image top section end -->
+</ion-content>
+
+<ion-footer>
+  <div class="next-btn">
+    <button mat-button mat-raised-button class="next" (click)="checkImage()">Next <ion-icon name='arrow-forward-outline'></ion-icon></button>
+  </div>
+
+</ion-footer>
+

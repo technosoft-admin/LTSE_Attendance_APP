@@ -1,0 +1,10 @@
+{
+  "name": "LTSE",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

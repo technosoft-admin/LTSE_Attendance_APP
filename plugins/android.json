@@ -1,0 +1,66 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    },
+    "cordova-plugin-firebasex": {
+      "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
+      "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "true",
+      "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "true",
+      "ANDROID_ICON_ACCENT": "#FF00FFFF",
+      "ANDROID_FIREBASE_PERFORMANCE_MONITORING": "false",
+      "ANDROID_PLAY_SERVICES_TAGMANAGER_VERSION": "18.0.1",
+      "ANDROID_PLAY_SERVICES_AUTH_VERSION": "20.0.1",
+      "ANDROID_FIREBASE_ANALYTICS_VERSION": "20.0.2",
+      "ANDROID_FIREBASE_MESSAGING_VERSION": "23.0.0",
+      "ANDROID_FIREBASE_CONFIG_VERSION": "21.0.1",
+      "ANDROID_FIREBASE_PERF_VERSION": "20.0.4",
+      "ANDROID_FIREBASE_AUTH_VERSION": "21.0.1",
+      "ANDROID_FIREBASE_INAPPMESSAGING_VERSION": "20.1.1",
+      "ANDROID_FIREBASE_FIRESTORE_VERSION": "24.0.1",
+      "ANDROID_FIREBASE_FUNCTIONS_VERSION": "20.0.1",
+      "ANDROID_FIREBASE_IID_VERSION": "21.1.0",
+      "ANDROID_FIREBASE_INSTALLATIONS_VERSION": "17.0.0",
+      "ANDROID_FIREBASE_CRASHLYTICS_VERSION": "18.2.7",
+      "ANDROID_FIREBASE_CRASHLYTICS_NDK_VERSION": "18.2.7",
+      "ANDROID_GSON_VERSION": "2.8.9",
+      "ANDROID_FIREBASE_PERF_GRADLE_PLUGIN_VERSION": "1.4.1",
+      "ANDROID_GRPC_OKHTTP": "1.32.2",
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    },
+    "cordova-plugin-sms-retriever-manager": {
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.ionic.ltseattendance"
+    }
+  },
+  "dependent_plugins": {}
+}

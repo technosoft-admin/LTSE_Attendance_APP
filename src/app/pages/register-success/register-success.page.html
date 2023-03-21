@@ -1,0 +1,77 @@
+
+<ion-content>
+  <!-- image top section Start  -->
+  <div class="bg-img-top">
+    <!-- left arrow key start -->
+
+    <!-- left arrow key end -->
+    <!-- profile title strat -->
+    <ion-row>
+      <div class="profile-title">
+        <p>Registration Success</p>
+      </div>
+    </ion-row>
+    <div>
+      <div class="header">
+        <div class="avatar">
+          <!-- <div class="edit-icon">
+            <mat-icon class="material-icons-outlined" aria-hidden="false" aria-label="Example home icon">mode_edit_outline</mat-icon>
+          </div> -->
+          <div class="edit-img">
+            
+            <img src="{{profile_image}}">
+          </div>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+
+    <div class="registration-succ-box">
+        <h3>Registration Successful!</h3>
+        <span class="short-desc">Dear Student Your Account Details For</span>
+        <p> lalittutorials.com website is:</p>
+        <ion-row class="t-center">
+          <ion-col size="6">
+            <ion-label>Username</ion-label>
+            <ion-input class="form-control ps-0" readonly value="{{profile_data?.username}}"></ion-input>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label>Password</ion-label>
+            <ion-input class="form-control ps-0" readonly value="{{profile_data?.password}}"></ion-input>
+          </ion-col>
+        </ion-row>
+        <p>And Your Registered Mobile Number is:</p>
+        <ion-row class="t-center">
+          <ion-col size="6">
+        <ion-input class="form-control ps-0" readonly value="{{profile_data?.mobile_number}}"></ion-input>
+      </ion-col>
+    </ion-row>
+    <span class="warning-text">Take Screen Shot for Future Reference<br> Your LTSE-2023 Exam Schedule is:</span>
+    <ion-row class="t-center">
+      <ion-col size="6">
+        <ion-label>Date</ion-label>
+        <ion-input class="form-control ps-0" readonly value=" {{profile_data?.exam_date}}"></ion-input>
+      </ion-col>
+      </ion-row>
+      <ion-row class="t-center">
+      <ion-col size="12">
+        <ion-label>Time</ion-label>
+        <ion-input class="form-control ps-0" readonly value="{{profile_data?.exam_time}}"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row class="t-center">
+      <ion-col size="6">
+        <ion-label>Exam Mode</ion-label>
+        <ion-input class="form-control ps-0" readonly value="{{profile_data?.exam_mode}}"></ion-input>
+      </ion-col>
+      <ion-col size="6">
+        <ion-label>Venue</ion-label>
+        <ion-input class="form-control ps-0" readonly value="Lalit Tutorials Akola"></ion-input>
+      </ion-col>
+    </ion-row>
+    </div>
+
+
+  <!-- image top section end -->
+</ion-content>

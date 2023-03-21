@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Important Notice
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="exam-mode">
+    <ion-row>
+      <ion-col size="12">
+        <div class="exam-card">
+          Entrance Exam (LTSE-{{session}}) Erollment should be done Once only.<br>
+          <span style="color: red;">विद्यार्थ्याने प्रवेश परीक्षा (LTSE-{{session}}) करिता Erollment एकदाच करावे.</span>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="exam-card">
+          A student can appear for three LTSE Attempts with the same LTSE ID.<br>
+          <span style="color: red;">विद्यार्थी एकाच LTSE ID चा उपयोग करून LTSE Exam तीन वेळा देऊ शकतो.</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="aggree-button">
+    <ion-button expand="block" [routerLink]="['/','exam-mode']">I Agree</ion-button>
+  </div>
+</ion-footer>

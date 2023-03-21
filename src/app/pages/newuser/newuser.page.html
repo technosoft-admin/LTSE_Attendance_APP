@@ -1,0 +1,46 @@
+<ion-content>
+  <div class="login-wrap">
+    <div class="login-content">
+      <p class="text">LTSE Attendance Staff Login</p>
+      <div class="reset-logo">
+        <ion-img src="assets/images/face.png"></ion-img>
+      </div>
+      <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
+        <div class="reset-form">
+          <ion-input class="form-control"  placeholder="Enter Swipe Key" name="swipe_key" required  [(ngModel)]="model.swipe_key"  ></ion-input>
+          <div class="reset-logo">
+            <h3 style="color:black">OR</h3>
+            </div>
+          <ion-input class="form-control"  placeholder="Enter Username" name="username" required  [(ngModel)]="model.username" ></ion-input>
+          <ion-input class="form-control" required placeholder="Enter Password"  type="password"  name="password"  [(ngModel)]="model.password"></ion-input>
+          <ion-button  type="submit" >Login</ion-button>
+          <!-- <span class="form-message">You Will Receive OTP On Above Mobile No.</span> -->
+        </div>
+      </form>
+      <!-- <div class="otp-box">
+        <ion-row>
+          <ion-col>
+          <ion-input type="tel" class="otp-input-form" #otp1 required="true"  OnlyNumber="true" maxLength="1" [(ngModel)]="otp.first" (keyup)="otpController($event,otp2,'','1')">
+          </ion-input>
+          <ion-input  type="tel" class="otp-input-form" #otp2 required="true"  OnlyNumber="true" maxLength="1" [(ngModel)]="otp.second" (keyup)="otpController($event,otp3,otp1,'2')">
+          </ion-input>
+          <ion-input  type="tel" class="otp-input-form" #otp3 required="true" maxLength="1"  OnlyNumber="true" [(ngModel)]="otp.third" (keyup)="otpController($event,otp4,otp2,'3')">
+          </ion-input>
+      
+          <ion-input  type="tel" class="otp-input-form" #otp4 required="true"  OnlyNumber="true" maxLength="1" [(ngModel)]="otp.forth" (keyup)="otpController($event,otp5,otp3,'4')">
+          </ion-input> -->
+      
+          <!-- <ion-input  type="tel" class="otp-input-form" #otp5  required="true"  OnlyNumber="true" maxLength="1" [(ngModel)]="otp.fifth" (keyup)="otpController($event,otp6,otp4,'5')">
+          </ion-input>
+      
+          <ion-input  type="tel" class="otp-input-form" #otp6  required="true" OnlyNumber="true" maxLength="1" [(ngModel)]="otp.sixth" (keyup)="otpController($event,'',otp5, '6')">
+          </ion-input> -->
+      
+          <!-- </ion-col>
+        </ion-row>
+        <p class="text-center otp-text">Enter Your 4 Digit OTP</p>
+        <div class="opt-count-time"><div class="otp-time">{{timeLeft}}</div></div>
+      </div> -->
+    </div>
+  </div>
+</ion-content>

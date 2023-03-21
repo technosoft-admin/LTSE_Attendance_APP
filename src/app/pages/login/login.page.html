@@ -1,0 +1,23 @@
+<ion-content>
+  <div class="login-wrap">
+    <div class="">
+      <div class="logo-header">
+        <ion-img src="assets/images/logo.png"></ion-img>
+      </div>
+      <div class="log-form">
+        <form>
+          <ion-input class="form-control" placeholder="Enter Username"></ion-input>
+          <ion-input class="form-control" placeholder="Enter Password"></ion-input>
+          <ion-button [routerLink]="['/', 'otp-counter','auth']">Login</ion-button>
+          <p class="forgot-link">Forgot password?</p>
+          <div class="new-user-link">
+            <h2 [routerLink]="['/','newuser']">New User</h2>
+            <span>Click here to register</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>
+

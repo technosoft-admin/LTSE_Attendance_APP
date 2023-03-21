@@ -1,0 +1,237 @@
+  <ion-content>
+  <!-- image top section Start  -->
+  <div class="bg-img-top">
+    <!-- left arrow key start -->
+    <ion-row>
+        <ion-icon [routerLink]="['/','profile-upload']" class="back-button" name='arrow-back-outline'></ion-icon>
+      </ion-row>
+    <!-- left arrow key end -->
+    <!-- profile title strat -->
+    <ion-row>
+      <div class="profile-title">
+        <p>Registration Form</p>
+        <img src="" />
+      </div>
+    </ion-row>
+    <div>
+      <div class="header">
+        <div class="avatar">
+          <div class="edit-img">
+            <!-- <div class="no-img">No Photo</div> -->
+            <img *ngIf="!imgaePreviewcv"src="assets/images/user.png">
+            <img *ngIf="imgaePreviewcv"src="{{imgaePreviewcv}}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="register-form">
+      <div class="register-wrap">
+        <div class="register-content">
+          <ion-grid>
+            
+            <ion-row>
+              <form *ngIf="form1" #addForm="ngForm" (ngSubmit)="onSubmit(addForm,'next1')" >
+                <div class="wrap-form">
+                  <ion-col size="12">
+                    <ion-label>Select Course</ion-label>
+                      <ion-select  placeholder="Select" class="form-control" name="coures" interface="popover" [(ngModel)]="model.coures" required>
+                        <ion-select-option *ngFor="let coures of courseList" value="{{coures.course_id}}">{{coures.course_name}}</ion-select-option>
+                        <!-- <ion-select-option value="blonde">Blonde</ion-select-option>
+                        <ion-select-option value="black">Black</ion-select-option>
+                        <ion-select-option value="red">Red</ion-select-option> -->
+                      </ion-select>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Select Your LTSE Exam Date</ion-label>
+                      <ion-select placeholder="Select" class="form-control" interface="popover"  name="examdate" [(ngModel)]="model.examdate" required>
+                        <ion-select-option *ngFor="let date of examDateList" value="{{date.date}}">{{date.date}}</ion-select-option>
+                       
+                      </ion-select>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Select Your LTSE Exam Timeing</ion-label>
+                      <ion-select placeholder="Select" class="form-control"  interface="popover"  name="examtime" [(ngModel)]="model.examtime" required>
+                        <ion-select-option *ngFor="let time of examTimeList" value="{{time}}">{{time}}</ion-select-option>
+                      
+                      </ion-select>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Aadhar Card No.</ion-label>
+                    <div class="otp-box">
+                      <ion-input type="number" class="otp-input-form" placeholder="0000" #otp1 required="true" maxlength="4" name="aadhar1" [(ngModel)]="model.aadhar1" (keyup)="checkAadharNumber($event,otp2,'','1','aadhar1')" >
+                      </ion-input>
+                      <ion-input  type="number" class="otp-input-form" placeholder="0000" #otp2 required="true" maxLength="4" name="aadhar2" [(ngModel)]="model.aadhar2" (keyup)="checkAadharNumber($event,otp3,otp1,'2','aadhar2')">
+                      </ion-input>
+                      <ion-input  type="number" class="otp-input-form" placeholder="0000" #otp3 required="true" maxLength="4" name="aadhar3" [(ngModel)]="model.aadhar3" (keyup)="checkAadharNumber($event,otp4,otp2,'3','aadhar3')">
+                      </ion-input>
+                    </div>
+                  </ion-col>
+                </div>
+                <div class="prev-next-btn d-flex ion-justify-content-between ion-align-items-center">
+                  <div class="d-flex ion-justify-content-start ion-align-items-center">
+                    <button mat-button class="back" mat-raised-button [routerLink]="['/','profile-upload']" ><ion-icon name='arrow-back-outline'></ion-icon> Back</button>
+                  </div>
+                  <div class="d-flex ion-justify-content-end ion-align-items-center">
+                    <button type="submit" mat-button mat-raised-button class="next" >Next <ion-icon name='arrow-forward-outline'></ion-icon></button>
+                  </div>
+                </div>
+              </form>
+              <form *ngIf="form2" #addForm="ngForm" (ngSubmit)="onSubmit(addForm,'next2')">
+                <div class="wrap-form">
+                  <ion-col size="12">
+                    <ion-label>Student Name</ion-label>
+                    <ion-input class="form-control" pattern="[a-zA-Z][a-zA-Z ]+"  type="text" required="true" name="name" [(ngModel)]="model.name" ></ion-input>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Father Name</ion-label>
+                    <ion-input class="form-control" type="text" pattern="[a-zA-Z][a-zA-Z ]+" required="true" name="father" [(ngModel)]="model.father" ></ion-input>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Surname</ion-label>
+                    <ion-input class="form-control" type="text" pattern="[a-zA-Z][a-zA-Z ]+" required="true" name="surname" [(ngModel)]="model.surname" ></ion-input>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Mother Name</ion-label>
+                    <ion-input class="form-control" type="text"  pattern="[a-zA-Z][a-zA-Z ]+"required="true" name="mother" [(ngModel)]="model.mother" ></ion-input>
+                  </ion-col>
+                </div>
+                <div class="prev-next-btn d-flex ion-justify-content-between ion-align-items-center">
+                  <div class="d-flex ion-justify-content-start ion-align-items-center">
+                    <button mat-button class="back" mat-raised-button  (click)="onBack('back1')"><ion-icon name='arrow-back-outline'></ion-icon> Back</button>
+                  </div>
+                  <div class="d-flex ion-justify-content-end ion-align-items-center">
+                    <button type="submit"  mat-button mat-raised-button class="next">Next <ion-icon name='arrow-forward-outline'></ion-icon></button>
+                  </div>
+                </div>
+              </form>
+              <form *ngIf="form3" #addForm="ngForm" (ngSubmit)="onSubmit(addForm,'next3')">
+                <div class="wrap-form">
+                  <ion-col size="12">
+                    <ion-label>Father's Mobile No.</ion-label>
+                    <ion-input class="form-control" type="tel" required="true" name="fmobile" [(ngModel)]="model.fmobile" (ionInput)="countChange($event,'fmobile')" pattern="[0-9]{10}" maxlength="10" ></ion-input>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Mother's Mobile No.</ion-label>
+                    <ion-input class="form-control" type="tel" required="true" name="mmobile" [(ngModel)]="model.mmobile" (ionInput)="countChange($event,'mmobile')" pattern="[0-9]{10}" maxlength="10"></ion-input>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>WhatsApp No.</ion-label>
+                    <ion-input class="form-control" type="tel" required="true" name="wmobile" [(ngModel)]="model.wmobile" (ionInput)="countChange($event,'wmobile')" pattern="[0-9]{10}" maxlength="10"></ion-input>
+                  </ion-col>
+                </div>
+                <div class="prev-next-btn d-flex ion-justify-content-between ion-align-items-center">
+                  <div class="d-flex ion-justify-content-start ion-align-items-center">
+                    <button mat-button class="back" mat-raised-button  (click)="onBack('back2')"><ion-icon name='arrow-back-outline'></ion-icon> Back</button>
+                  </div>
+                  <div class="d-flex ion-justify-content-end ion-align-items-center">
+                    <button  type="submit" mat-button mat-raised-button class="next">Next <ion-icon name='arrow-forward-outline'></ion-icon></button>
+                  </div>
+                </div>
+              </form>
+              <form *ngIf="form4"  #addForm="ngForm" (ngSubmit)="onSubmit(addForm,'next4')">
+                <div class="wrap-form">
+                  <ion-col size="12">
+                    <ion-label>Date Of Birth</ion-label>
+                    <div class="ion-flex">
+                      <div class="width-33">
+                        <ion-select placeholder="Years" class="form-control" interface="popover"  name="dobyear" [(ngModel)]="model.dobyear" required (ionChange)="setVal($event,'year')">
+                          <ion-select-option  *ngFor="let data of yearList" value="{{data}}">{{data}}</ion-select-option>
+                        
+                        </ion-select>
+                      </div>
+                      <div class="width-33">
+                        <ion-select placeholder="Months" class="form-control" interface="popover"  name="dobmon" [(ngModel)]="model.dobmon" required (ionChange)="setVal($event,'month')">
+                          <ion-select-option  *ngFor="let data of monthList" value="{{data.id}}">{{data.value}}</ion-select-option>
+                   
+                        </ion-select>
+                      </div>
+                      <div class="width-33">
+                        <ion-select placeholder="Days" class="form-control"  interface="popover" name="dobday" [(ngModel)]="model.dobday"  required>
+                          <ion-select-option *ngFor="let num of dayList">{{num}}</ion-select-option>
+                        </ion-select>
+                      </div>
+                    </div>
+                  </ion-col>
+
+                  <ion-col size="12">
+                    <div class="">
+                      <ion-label>Gender</ion-label>
+                      <span>
+                        <ion-radio-group class="gender-group" name="gender" [(ngModel)]="model.gender" required>
+                          <ion-radio slot="start" value="male"></ion-radio>
+                          <ion-label>Male</ion-label>
+                          <ion-radio slot="start" value="female"></ion-radio>      
+                          <ion-label>Female</ion-label>                
+                        </ion-radio-group>
+                      </span>
+                    </div>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label><br/>Select Caste</ion-label>
+                      <ion-select placeholder="Select" class="form-control" interface="popover"  name="caste" [(ngModel)]="model.caste" >
+                        <ion-select-option *ngFor="let caste of casteList" value="{{caste?.cast_id}}">{{caste?.name}}</ion-select-option>
+                       
+                      </ion-select>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>School Name</ion-label>
+                    <ion-input class="form-control" type="text" required="true" name="school_name" [(ngModel)]="model.school_name" ></ion-input>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Residential Address</ion-label>
+                    <ion-input class="form-control" type="text" required="true" name="address" [(ngModel)]="model.address" ></ion-input>
+                  </ion-col>
+                </div>
+                <div class="prev-next-btn d-flex ion-justify-content-between ion-align-items-center">
+                  <div class="d-flex ion-justify-content-start ion-align-items-center">
+                    <button mat-button class="back" mat-raised-button  (click)="onBack('back3')"><ion-icon name='arrow-back-outline'></ion-icon> Back</button>
+                  </div>
+                  <div class="d-flex ion-justify-content-end ion-align-items-center">
+                    <button type="submit"  mat-button mat-raised-button class="next">Next <ion-icon name='arrow-forward-outline'></ion-icon></button>
+                  </div>
+                </div>
+              </form>
+              <form *ngIf="form5"  #addForm="ngForm" (ngSubmit)="onSubmit(addForm,'next5')">
+                <div class="wrap-form">
+                  <ion-col size="12">
+                    <ion-label>State</ion-label>
+                      <ion-select placeholder="Select" class="form-control" interface="popover"  name="state" [(ngModel)]="model.state" required>
+                        <ion-select-option *ngFor="let state of stateList" value="{{state?.state_id}}">{{state?.name}}</ion-select-option>
+                      </ion-select>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>District</ion-label>
+                      <ion-select placeholder="Select" class="form-control" interface="popover"  (ionChange)="getTaluka($event.target.value)" name="district" [(ngModel)]="model.district" required>
+                        <ion-select-option *ngFor="let district of districtList" value="{{district?.district_id}}">{{district?.district_name}}</ion-select-option>
+
+                      </ion-select>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Taluka</ion-label>
+                      <ion-select placeholder="Select" class="form-control" interface="popover"  name="taluka" [(ngModel)]="model.taluka" required>
+                        <ion-select-option *ngFor="let taluka of talukaList"  value="{{taluka?.taluka_id}}">{{taluka?.taluka_name}}</ion-select-option>
+                      </ion-select>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>City</ion-label>
+                    <ion-input class="form-control" type="text" required="true" name="city" [(ngModel)]="model.city" ></ion-input>
+                  </ion-col>
+                </div>
+                <div class="prev-next-btn d-flex ion-justify-content-between ion-align-items-center">
+                  <div class="d-flex ion-justify-content-start ion-align-items-center">
+                    <button mat-button class="back" mat-raised-button (click)="onBack('back4')" ><ion-icon name='arrow-back-outline'></ion-icon> Back</button>
+                  </div>
+                  <div class="d-flex ion-justify-content-end ion-align-items-center">
+                    <button  type="submit" mat-button mat-raised-button class="submit" >Submit</button>
+                  </div>
+                </div>
+              </form>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- image top section end -->
+  </ion-content>
+  
