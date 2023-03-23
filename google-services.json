@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:931596885952:android:7054c8a4ff5c138223b225",
         "android_client_info": {
-          "package_name": "io.ionic.ltseattendance"
+          "package_name": "io.ionic.starter"
         }
       },
       "oauth_client": [

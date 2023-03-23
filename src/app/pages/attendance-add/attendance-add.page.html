@@ -1,0 +1,86 @@
+<ion-content>
+  <!-- image top section Start  -->
+  <div class="bg-img-top">
+    <!-- left arrow key start -->
+    <ion-row>
+        <ion-icon [routerLink]="['/','profile-upload']" class="back-button" name='arrow-back-outline' style="color: #fff;"></ion-icon>
+      </ion-row>
+    <!-- left arrow key end -->
+    <!-- profile title strat -->
+    <ion-row style="margin-top: -20px; z-index: -1;">
+      <div class="profile-title">
+        <p style="color: #fff;">{{hall_data?.hall_name}}</p>
+        <img src="" />
+      </div>
+    </ion-row>
+    <div class="number-box">
+      <span>{{type.substring(0,1)}}</span>
+      <span>{{attendance_count}}/{{hall_data?.seating_capacity}}</span>
+    </div>
+
+    <div class="register-form">
+      <div class="register-wrap">
+        <div class="register-content">
+          <ion-grid>
+            
+            <ion-row>
+              <form  #addForm="ngForm" (ngSubmit)="onSubmit(addForm)" >
+                <div class="wrap-form">
+
+                  <ion-col size="12" class="middle-field">
+                    <ion-label>Swipe ID Card Here</ion-label>
+                    <ion-input class="form-control" pattern="[a-zA-Z][a-zA-Z ]+"  type="text" required="true" name="name" [(ngModel)]="model.name" ></ion-input>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-row>
+                      <ion-col size="6" size-sm="6">
+                        <!-- <ion-label>LTSE Number</ion-label> -->
+                        <ion-input class="form-control" pattern="[a-zA-Z][a-zA-Z ]+"  placeholder="LTSE Number" type="text" required="true" name="name" [(ngModel)]="model.name" ></ion-input>
+                      </ion-col>
+                      <ion-col size="6" size-sm="6">
+                        <!-- <ion-label>Attempt</ion-label> -->
+                        <ion-input class="form-control" pattern="[a-zA-Z][a-zA-Z ]+" placeholder="Attempt" type="text" required="true" name="name" [(ngModel)]="model.name" ></ion-input>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col size="12">
+                    <!-- <ion-label>Name</ion-label> -->
+                    <ion-input class="form-control" pattern="[a-zA-Z][a-zA-Z ]+"  type="text" placeholder="Name" required="true" name="name" [(ngModel)]="model.name" ></ion-input>
+                  </ion-col>
+             
+               
+                </div>
+                <div class="listing-box">
+                  <div class="message-item pt-15" *ngFor="let value of list" >
+                    <ion-item style="background: #fff;" class="message-item-color" [routerLink]="['/notification-list']" ngClass="bg-red">
+                      <ion-avatar slot="end" class="message-avatar" *ngIf="value.type=='general' || value.type=='attendance' || value.type=='libary'">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </ion-avatar>
+                      <ion-label>
+                        <div class="message-content">
+                          <div><h3>LTSE Number</h3></div>
+                          <div class="time"><h5><span>Attempt No</span>&nbsp;&nbsp;&nbsp; {{value.time}}</h5></div>
+                        </div>
+                        <p>Name</p>
+                      </ion-label>
+                    </ion-item>
+                  </div>
+                </div>
+                <div class="prev-next-btn d-flex ion-justify-content-between ion-align-items-center">
+                  <ion-button size="small">Start Exam</ion-button>
+                  <ion-button color="success" size="small">End Exam</ion-button>
+                  <ion-button color="danger" size="small">End Attendance</ion-button>
+                </div>
+              </form>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- image top section end -->
+  </ion-content>
+  <ion-footer>
+    
+  </ion-footer>
+  

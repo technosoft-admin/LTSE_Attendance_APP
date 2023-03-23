@@ -1,0 +1,76 @@
+<ion-content>
+  <!-- image top section Start  -->
+  <div class="bg-img-top">
+    <!-- left arrow key start -->
+    <ion-row>
+        <ion-icon [routerLink]="['/','profile-upload']" class="back-button" name='arrow-back-outline'></ion-icon>
+      </ion-row>
+    <!-- left arrow key end -->
+    <!-- profile title strat -->
+    <ion-row>
+      <div class="profile-title">
+        <p>Registration Form</p>
+        <img src="" />
+      </div>
+    </ion-row>
+    <div>
+      <div class="header">
+        <div class="avatar">
+          <div class="edit-img">
+            <!-- <div class="no-img">No Photo</div> -->
+            <!-- <img *ngIf="!imgaePreviewcv"src="assets/images/user.png">
+            <img *ngIf="imgaePreviewcv"src="{{imgaePreviewcv}}"> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="register-form">
+      <div class="register-wrap">
+        <div class="register-content">
+          <ion-grid>
+            
+            <ion-row>
+              <form  #addForm="ngForm" (ngSubmit)="onSubmit(addForm)" >
+                <div class="wrap-form">
+                  <ion-col size="12">
+                    <ion-label>Attendance Staff</ion-label>
+                    <ion-input class="form-control" readonly pattern="[a-zA-Z][a-zA-Z ]+"  type="text" required="true" name="attendance_staff" [(ngModel)]="model.attendance_staff" ></ion-input>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Examination Hall Campus</ion-label>
+                    <ion-input class="form-control" readonly pattern="[a-zA-Z][a-zA-Z ]+"  type="text" required="true" name="exam_hall_campus" [(ngModel)]="model.exam_hall_campus" ></ion-input>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Examination Hall Name</ion-label>
+                      <ion-select  placeholder="Select" class="form-control" name="exam_hall_name" interface="popover" [(ngModel)]="model.exam_hall_name" required>
+                        <ion-select-option *ngFor="let hall of exam_hall" value="{{hall.id}}">{{hall.hall_name}}</ion-select-option>
+                      </ion-select>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-label>Seating Capacity</ion-label>
+                    <ion-input class="form-control" readonly pattern="[a-zA-Z][a-zA-Z ]+" readonly type="text" required="true" name="seating_capcity" [(ngModel)]="model.seating_capcity" ></ion-input>
+                  </ion-col>
+               
+                  <ion-col size="12">
+                    <ion-label>Attendance Type</ion-label>
+                      <ion-select  placeholder="Select" class="form-control" name="attendance_type" interface="popover" [(ngModel)]="model.attendance_type" required>
+                        <!-- <ion-select-option *ngFor="let coures of courseList" value="{{coures.course_id}}">{{coures.course_name}}</ion-select-option> -->
+                      <ion-select-option value="Student">Student</ion-select-option>
+                        <ion-select-option value="Parents">Parents</ion-select-option>
+                      </ion-select>
+                  </ion-col>
+                </div>
+                <div class="prev-next-btn d-flex ion-justify-content-between ion-align-items-center">
+                  <button mat-button  mat-raised-button> Start Attendance</button>
+                </div>
+              </form>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- image top section end -->
+  </ion-content>
+
+  

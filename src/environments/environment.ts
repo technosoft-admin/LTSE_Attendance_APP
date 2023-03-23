@@ -7,10 +7,12 @@ export const environment = {
   apiMaster:'1',
   apiKey:'qwertyuiop',
   // apiUrl:'https://app.lalittutorials.com/api/student',
-   apiUrl:'http://localhost:4000/api/staff-attendance',
+  //  apiUrl:'http://localhost:4000/api/staff-attendance',
+   apiUrl:'http://192.168.235.18:4000/api/staff-attendance',
 
-  fileUrl:'http://localhost:4000/',
+  // fileUrl:'http://localhost:4000/',
 //  fileUrl:'https://app.lalittutorials.com/',
+ fileUrl:'https://192.168.235.18:4000/',
 };
 
 /*

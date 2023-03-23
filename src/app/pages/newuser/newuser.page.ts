@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { CommonUtils } from 'src/app/services/common-utils/common-utils';
+import { LoadingController, MenuController } from '@ionic/angular';
+import { Observable, Subscription } from 'rxjs';
+import { AuthLoginService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-newuser',
@@ -17,80 +19,70 @@ export class NewuserPage implements OnInit {
   interval: any;
   model: any = {}
   mobile: ""
-  private newSubscribe: Subscription;
-  private otpCheckSubscribe: Subscription;
-  constructor(private http: HttpClient, private router: Router, private commonUtils: CommonUtils,) { }
-  otp: any = {
-    first: '',
-    second: '',
-    third: '',
-    forth: '',
-
-  };
+  // private loginCheckSubscribe: Subscription;
+  private loginCheckSubscribe: Subscription;
+  constructor(private http: HttpClient, private router: Router, private commonUtils: CommonUtils, private authService: AuthLoginService, private loadingController: LoadingController,) { }
+  
 
   ngOnInit() {
-    this.otp.first=""
-    this.otp.second=""
-    this.otp.third=""
-    this.otp.forth=""
-    this.model.student_name=""
-    this.model.mobile_number=""
-    localStorage.removeItem('base64');
-    localStorage.removeItem('exammode');
-    localStorage.removeItem('mobile');
-    localStorage.removeItem("token");
-    // this.startTimer();
-    
-    
   }
 
 
 
 
 
+  autoEnterSwipKey(event) {
+    console.log("hello", event.target.value);
+    let swipekey= event.target.value
+    if (!swipekey) {
+      this.commonUtils.presentToast('error', 'This Swipe Key is required');
+      return;
+
+    }
+    
+    let fd = new FormData();
+    console.log('form login >>', swipekey);
+
+
+        fd.append('swipe_key',swipekey);
+    // this.login(fd)
+  }
 
   onSubmit(_form: NgForm) {
     console.log('form login >>', _form.value);
-  let message='';
-  let count=0;
-  if(!_form.value.swipe_key)
-  {
-    count=1
+    let message = '';
+    let count = 0;
+    if (!_form.value.swipe_key) {
+      count = 1
 
-  }
-  if(!_form.value.username || !_form.value.password)
-  {
-    count=2
-    
-  }
-  if(_form.value.username && _form.value.password)
-{
-  count=0
-  this.model.swipe_key==""
-}
-if(_form.value.swipe_key)
-{
-  count=0
-  this.model.username==""
-  this.model.password==""
-}
+    }
+    if (!_form.value.username || !_form.value.password) {
+      count = 2
 
-  if(count==1)
-  {
-    this.commonUtils.presentToast('error', 'This Swipe Key is required');
-    return ;
+    }
+    if (_form.value.username && _form.value.password) {
+      count = 0
+      this.model.swipe_key == ""
+    }
+    if (_form.value.swipe_key) {
+      count = 0
+      this.model.username == ""
+      this.model.password == ""
+    }
 
-  }
-if(count==2)
-  {
-    this.commonUtils.presentToast('error', 'This Username & Password is required');
-    return ;
-  }
+    if (count == 1) {
+      this.commonUtils.presentToast('error', 'This Swipe Key is required');
+      return;
+
+    }
+    if (count == 2) {
+      this.commonUtils.presentToast('error', 'This Username & Password is required');
+      return;
+    }
 
     let fd = new FormData();
     console.log('form login >>', _form.value);
-    // this.mobile = _form.value['mobile_number']
-    // localStorage.setItem('mobile', this.mobile )
+
 
     for (let val in _form.value) {
       if (_form.value[val] == undefined) {
@@ -100,15 +92,16 @@ if(count==2)
         fd.append(val, _form.value[val]);
       }
     };
-    this.otpCheckSubscribe = this.http.post('login', fd).subscribe(
+    // this.login(fd)
+    this.authenticate(_form, fd);
+
+  }
+
+  login(fd) {
+    this.loginCheckSubscribe = this.http.post('login', fd).subscribe(
       (res: any) => {
         console.log(res)
         if (res.return_status == 1) {
-          this.otp.first=""
-          this.otp.second=""
-          this.otp.third=""
-          this.otp.forth=""
-          this.timeLeft = 60;
           this.commonUtils.presentToast('success', res.return_message);
         }
         else {
@@ -123,58 +116,43 @@ if(count==2)
       }
     );
   }
+ 
+  authenticate(_form, form_data) {
+  
+    this.loadingController
+      .create({ keyboardClose: true, message: 'Logging in...' })
+      .then(loadingEl => {
+        loadingEl.present();
+        let authObs: Observable<any>;
+        authObs = this.authService.login('login', form_data, '')
 
-  otpCheck() {
-    // this.model.student_name=""
+        this.loginCheckSubscribe = authObs.subscribe(
+          resData => {
+            console.log('resData ============= (sign in) ))))))))))))))>', resData);
+            if (resData.return_status == 1) {
+                this.router.navigateByUrl('/staff-details');
+              this.commonUtils.presentToast('success', resData.return_message);
 
-    let otparray = ""
-    console.log(this.otp)
-    for (let val in this.otp) {
-      // otparray.push(this.otp[val])
-      console.log('otpcon', otparray, this.otp[val]);
+              loadingEl.dismiss();
+            }
+            else
+            {
+              this.commonUtils.presentToast('error', resData.return_message);
 
-      if (otparray === "") {
-        otparray = this.otp[val].toString();
-      }
-      else {
-        otparray += this.otp[val].toString();
+            }
+            loadingEl.dismiss();
 
-      }
-
-    };
-    // otparray= this.otp[val].toString();
-    let fd = new FormData();
-    fd.append('otp', otparray.toString());
-    fd.append('mobile_number', this.mobile);
-
-    this.newSubscribe = this.http.post('get-otp-check', fd).subscribe(
-      (res: any) => {
-        console.log(res)
-        if (res.return_status == 1) {
-          
-          this.commonUtils.presentToast('success', res.return_message);
-          
-          this.router.navigateByUrl('/agree');
-
-        }
-        else {
-          this.commonUtils.presentToast('error', res.return_message);
-          // this.router.navigateByUrl('/agree');
-        }
-
-      },
-      errRes => {
-        console.log('DASHBOARD CHART COLOR => ', errRes);
-      }
-    );
+          },
+          errRes => {
+            loadingEl.dismiss();
+          }
+        );
+      });
   }
 
   ngOnDestory() {
-    if (this.newSubscribe !== undefined) {
-      this.newSubscribe.unsubscribe();
-    }
-    if (this.otpCheckSubscribe !== undefined) {
-      this.otpCheckSubscribe.unsubscribe();
+    if (this.loginCheckSubscribe !== undefined) {
+      this.loginCheckSubscribe.unsubscribe();
     }
 
 

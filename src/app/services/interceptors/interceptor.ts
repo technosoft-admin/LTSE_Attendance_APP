@@ -57,15 +57,15 @@ export class InterceptorProvider implements HttpInterceptor {
     }else {
       appKey = API_KEY;
       authorization = 'Bearer '+get_global_params.token;
-      let user_type=get_global_params.user.user_type;
-      if(user_type=='teacher')
-      {
-      url= `${API_URL}/${user_type}/${request.url}`
-      }
-      else
-      {
+      // let user_type=get_global_params.user.user_type;
+      // if(user_type=='teacher')
+      // {
+      // url= `${API_URL}/${user_type}/${request.url}`
+      // }
+      // else
+      // {
         url=`${API_URL}/${request.url}`
-      }
+      // }
       
     }
     
