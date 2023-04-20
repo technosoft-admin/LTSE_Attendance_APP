@@ -21,10 +21,20 @@ export class NewuserPage implements OnInit {
   mobile: ""
   // private loginCheckSubscribe: Subscription;
   private loginCheckSubscribe: Subscription;
+  private getLoginSubscribe: Subscription;
   constructor(private http: HttpClient, private router: Router, private commonUtils: CommonUtils, private authService: AuthLoginService, private loadingController: LoadingController,) { }
   
 
   ngOnInit() {
+    this.getLoginSubscribe = this.authService.globalparamsData.subscribe(res => {
+      console.log('authService', res);
+
+      if (res && res != null && res != undefined && res != '') {
+        if (res.token != undefined) {
+          this.router.navigateByUrl('/staff-details');
+        }
+      }
+    });
   }
 
 
@@ -46,6 +56,8 @@ export class NewuserPage implements OnInit {
 
         fd.append('swipe_key',swipekey);
     // this.login(fd)
+    this.authenticate({swipe_key:swipekey }, fd);
+
   }
 
   onSubmit(_form: NgForm) {

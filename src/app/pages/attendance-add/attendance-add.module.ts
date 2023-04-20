@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { AttendanceAddPageRoutingModule } from './attendance-add-routing.module';
 
 import { AttendanceAddPage } from './attendance-add.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     AttendanceAddPageRoutingModule
   ],
   declarations: [AttendanceAddPage]

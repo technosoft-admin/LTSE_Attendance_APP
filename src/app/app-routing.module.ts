@@ -5,6 +5,11 @@ import { AuthGuard } from './services/auth/auth.guard';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'staff-details',
+    pathMatch: 'full'
+  },
+  {
+    path: 'auth',
     loadChildren: () => import('./pages/newuser/newuser.module').then( m => m.NewuserPageModule)
   },
   {
@@ -14,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'attendance-add/:hall_id/:type',
-    canLoad:[AuthGuard],
+    // canLoad:[AuthGuard],
     loadChildren: () => import('./pages/attendance-add/attendance-add.module').then( m => m.AttendanceAddPageModule)
   }
   // {

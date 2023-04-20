@@ -64,10 +64,26 @@ ion-content{
                             } 
                         }
                         
+                        // .prev-next-btn{
+                        //     width: 100%;
+                        //     z-index: 999;
+                        //     background: #eeecec;
+                        //     box-shadow: rgb(233 234 235) 0px -7px 0px;
+                        //     display: flex;
+                        //     justify-content: space-between;
+                        //     align-items: center;
+                        //     height: 40px;
+                        //     position: fixed;
+                        //     bottom: 0;
+                        //     left: 0;
+                        //    .button{
+                        //     height: 40px;
+                        //    }
+                        // }
                         .prev-next-btn{
                             width: 100%;
                             z-index: 999;
-                            background: #eeecec;
+                            background: #0e0364;
                             box-shadow: rgb(233 234 235) 0px -7px 0px;
                             display: flex;
                             justify-content: space-between;
@@ -75,10 +91,7 @@ ion-content{
                             height: 40px;
                             position: fixed;
                             bottom: 0;
-                            left: 0;
-                           .button{
-                            height: 40px;
-                           }
+                            
                         }
                     }
                     ion-label{
@@ -165,7 +178,7 @@ ion-content{
     .message-item{
         padding: 0 15px 15px 15px;
         .message-item-color{
-            background: #fff;
+            --background: #fff;
             border-radius: 20px;
             --inner-border-width: 0;
             box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
@@ -670,8 +683,24 @@ ion-content{
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 18px;
+    top: 40px;
     right: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    flex-direction: column;
+}
+.number-box1 {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 40px;
+    // right: 6px;
     font-size: 20px;
     font-weight: bold;
     flex-direction: column;
@@ -692,4 +721,15 @@ ion-content{
 .listing-box {
     height: 250px;
     overflow: scroll;
+}
+.prev-next-btn.d-flex.ion-justify-content-between {
+    button {
+        margin: auto;
+        background: transparent;
+        font-size: 16px;
+        color:#fff;
+    }
+}
+.register-content{
+    margin-top: 20px;
 }

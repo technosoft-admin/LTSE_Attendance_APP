@@ -7,12 +7,13 @@ export const environment = {
   apiMaster:'1',
   apiKey:'qwertyuiop',
   // apiUrl:'https://app.lalittutorials.com/api/student',
-  //  apiUrl:'http://localhost:4000/api/staff-attendance',
-   apiUrl:'http://192.168.235.18:4000/api/staff-attendance',
-
-  // fileUrl:'http://localhost:4000/',
+   apiUrl:'http://localhost:4000/api/staff-attendance',
+  //  apiUrl:'http://192.168.182.18:4000/api/staff-attendance',
+  //  apiUrl:'https://c9b9-2401-4900-3fc7-f862-8925-4097-74fd-9339.in.ngrok.io/api/staff-attendance',
+  fileUrl:'http://localhost:4000/',
 //  fileUrl:'https://app.lalittutorials.com/',
- fileUrl:'https://192.168.235.18:4000/',
+//  fileUrl:'https://192.168.182.18:4000/',
+//  fileUrl:'https://98cf-2401-4900-3fc7-f862-8925-4097-74fd-9339.in.ngrok.io',
 };
 
 /*

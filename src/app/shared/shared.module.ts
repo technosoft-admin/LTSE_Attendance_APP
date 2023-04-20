@@ -16,7 +16,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import { NgSelectModule } from '@ng-select/ng-select'; // angular dropdown
 import { PinchZoomModule } from "ngx-pinch-zoom";
-
+import { AlertController } from '@ionic/angular/providers/alert-controller';
 // Material module end
 
 
